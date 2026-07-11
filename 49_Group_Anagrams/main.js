@@ -2,7 +2,9 @@
 
 //Solution
 var groupAnagrams = function(strs) {
+    //Create Map
     let anaMap = new Map();
+    //Loop 
     for(let i=0;i<strs.length;i++){
         let strSorted=strs[i].split('').sort().join('');
         if(anaMap.get(strSorted)){
@@ -11,6 +13,7 @@ var groupAnagrams = function(strs) {
             anaMap.set(strSorted,[strs[i]])
         }
     }
+    //Loop to Create Ouput
     let output=[];
     for (const [key,value] of anaMap){
         output.push(value)
