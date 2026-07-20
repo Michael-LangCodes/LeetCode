@@ -17,13 +17,17 @@
  * @return {number}
  */
 var evalRPN = function(tokens) {
+    //Create Variables
     let output;
     let operand = [];
+    //Loop Through Tokens
     for(let i=0;i<tokens.length;i++){
         let token = tokens[i];
+        //If Length is 1 return value
         if(tokens.length===1){
             return Number(token)
         }
+        //Check for operator
         else if (token === "+" || token === "-" || token === "*" || token === "/"){
                 if(token === "+"){
                     output = operand[operand.length-2]+operand[operand.length-1]
@@ -39,6 +43,7 @@ var evalRPN = function(tokens) {
                 operand.pop();
                 operand.push(output)
             }
+        //Check for number
         else{
             operand.push(Number(token))
         }
